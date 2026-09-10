@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #333333;
+    background: #FFFFFF;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { text-decoration: none; color: inherit; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-[20px] py-[9px] text-sm font-semibold border-none rounded-sm cursor-pointer transition-all whitespace-nowrap;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary {
+    @apply bg-primary text-white shadow-sm;
+  }
+  .btn-primary:hover { @apply bg-primary-dark; box-shadow: 0 2px 8px rgba(185,28,28,0.35); }
+  .btn-secondary {
+    @apply bg-surface text-text border border-border;
+  }
+  .btn-secondary:hover { @apply bg-surface-hover; border-color: #CBD5E1; }
+  .btn-ghost {
+    @apply bg-transparent text-text-secondary;
+  }
+  .btn-ghost:hover { @apply bg-surface-hover text-text; }
+  .btn-outline {
+    @apply bg-transparent border border-white/50 text-white;
+  }
+  .btn-outline:hover { @apply bg-white/10 border-white; }
+  .btn-sm {
+    @apply px-3.5 py-1.5 text-xs;
+  }
+  .btn-block { @apply w-full; }
+
+  .badge {
+    @apply inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .badge-success { @apply bg-success-bg text-success; }
+  .badge-warning { @apply bg-warning-bg text-warning; }
+  .badge-danger { @apply bg-danger-bg text-danger; }
+  .badge-info { @apply bg-info-bg text-info; }
+  .badge-secondary { @apply bg-surface-alt text-text-muted; }
+
+  .form-group { @apply mb-4; }
+  .form-group label { @apply block font-semibold mb-1.5 text-xs text-text-secondary; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    @apply w-full px-3.5 py-2.5 border border-border rounded-sm font-body text-sm bg-surface text-text transition-all;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    @apply outline-none border-primary;
+    box-shadow: 0 0 0 3px rgba(185,28,28,0.08);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .container { @apply max-w-[1200px] mx-auto px-6; }
+
+  .card {
+    @apply bg-surface border border-border rounded-lg overflow-hidden transition-all;
+  }
+  .card:hover { @apply shadow-lg border-transparent; }
+
+  .stat-card {
+    @apply bg-surface p-5 rounded-lg border border-border transition-all;
+  }
+  .stat-card:hover { @apply shadow-md border-transparent; }
+
+  .progress-bar {
+    @apply h-1.5 bg-border rounded-[3px] overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full bg-primary rounded-[3px] transition-all;
+    transition-duration: 600ms;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.4s ease-out;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  .page-enter {
+    animation: fadeInUp 0.4s ease-out;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
